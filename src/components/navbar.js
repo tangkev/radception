@@ -7,31 +7,31 @@ export default class NavBar extends Component {
         <Navbar inverse>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#home">Radception</a>
+              <a href="/">Radception</a>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavItem eventKey={1} href="#">
+            <NavItem eventKey={1} href="/">
               Home
             </NavItem>
-            <NavItem eventKey={2} href="#">
+            <NavItem eventKey={2} href="/inspiration">
               Inspiration
             </NavItem>
-            <NavItem eventKey={3} href="#">
+            <NavItem eventKey={3} href="/prototype">
               Prototype
             </NavItem>
-            <NavItem eventKey={4} href="#">
+            <NavItem eventKey={4} href="/finalproduct">
               Final Product
             </NavItem>
-            <NavItem eventKey={5} href="#">
+            <NavItem eventKey={5} href="/impact">
               Impact
             </NavItem>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">
+            <NavItem eventKey={1} href="/signin">
               Sign In
             </NavItem>
-            <NavItem eventKey={2} href="#">
+            <NavItem eventKey={2} href="/signup">
               Sign Up
             </NavItem>
           </Nav>

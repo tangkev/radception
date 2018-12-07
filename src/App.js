@@ -6,7 +6,7 @@ import FinalProduct from './views/FinalProduct';
 import Impact from './views/Impact';
 import SignIn from './views/SignIn';
 import SignUp from './views/SignUp';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
     render() {
