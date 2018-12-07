@@ -8,26 +8,26 @@ export default class SignIn extends Component {
         <div>
           <NavBar />
           <Form horizontal>
-            <FormGroup controlId="formHorizontalEmail">
-              <Col componentClass={ControlLabel} sm={2}>
-                Email
+            <FormGroup controlId="formHorizontalUsername">
+              <Col componentClass={ControlLabel} sm={2} smOffset={3}>
+                Username
               </Col>
-              <Col sm={3}>
-                <FormControl type="email" placeholder="Email" />
+              <Col sm={2}>
+                <FormControl type="username" placeholder="Username" />
               </Col>
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col componentClass={ControlLabel} sm={2} smOffset={3}>
                 Password
               </Col>
-              <Col sm={3}>
+              <Col sm={2}>
                 <FormControl type="password" placeholder="Password" />
               </Col>
             </FormGroup>
 
             <FormGroup>
-              <Col smOffset={2} sm={10}>
+              <Col smOffset={5} sm={2}>
                 <Button type="submit">Sign in</Button>
               </Col>
             </FormGroup>
