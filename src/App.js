@@ -1,28 +1,57 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Home from './views/Home';
+import Inspiration from './views/Inspiration';
+import Prototype from './views/Prototype';
+import FinalProduct from './views/FinalProduct';
+import Impact from './views/Impact';
+import SignIn from './views/SignIn';
+import SignUp from './views/SignUp';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <BrowserRouter>
+        		<div>
+          			<Route exact={true} path='/' render={() => (
+            			<div className="App">
+              				<Home />
+            			</div>
+          			)}/>
+          			<Route exact={true} path='/inspiration' render={() => (
+            			<div className="App">
+              				<Inspiration />
+            			</div>
+          			)}/>
+          			<Route exact={true} path='/prototype' render={() => (
+            			<div className="App">
+              				<Prototype />
+            			</div>
+          			)}/>
+          			<Route exact={true} path='/finalproduct' render={() => (
+            			<div className="App">
+              				<FinalProduct />
+            			</div>
+          			)}/>
+          			<Route exact={true} path='/impact' render={() => (
+            			<div className="App">
+              				<Impact />
+            			</div>
+          			)}/>
+          			<Route exact={true} path='/signin' render={() => (
+            			<div className="App">
+              				<SignIn />
+            			</div>
+          			)}/>
+          			<Route exact={true} path='/signup' render={() => (
+            			<div className="App">
+              				<SignUp />
+            			</div>
+          			)}/>
+        		</div>
+      		</BrowserRouter>
+        );
+    }
 }
 
 export default App;
