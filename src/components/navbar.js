@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default class NavBarOff extends Component {
   constructor(props) {
@@ -11,12 +12,12 @@ export default class NavBarOff extends Component {
     let nav2;
 
     if (this.props.loggedOn) {
-      nav1 = <NavItem eventKey={1} href="/signin">Dashboard</NavItem>;
-      nav2 = <NavItem eventKey={2} href="/">Sign Out</NavItem>;
+      nav1 = <NavItem eventKey={1}><Link to="signin">Dashboard</Link></NavItem>;
+      nav2 = <NavItem eventKey={2}><Link to="/">Sign Out</Link></NavItem>;
     }
     else {
-      nav1 = <NavItem eventKey={1} href="/signin">Sign In</NavItem>;
-      nav2 = <NavItem eventKey={2} href="/signup">Sign Up</NavItem>;
+      nav1 = <NavItem eventKey={1}><Link to="signin">Sign In</Link></NavItem>;
+      nav2 = <NavItem eventKey={2}><Link to="signup">Sign Up</Link></NavItem>;
     }
 
     return (
@@ -27,20 +28,20 @@ export default class NavBarOff extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem eventKey={1} href="/">
-            Home
+          <NavItem eventKey={1}>
+            <Link to="/">Home</Link>
           </NavItem>
-          <NavItem eventKey={2} href="/inspiration">
-            Inspiration
+          <NavItem eventKey={2}>
+            <Link to="/inspiration">Inspiration</Link>
           </NavItem>
-          <NavItem eventKey={3} href="/prototype">
-            Prototype
+          <NavItem eventKey={3}>
+            <Link to="/prototype">Prototype</Link>
           </NavItem>
-          <NavItem eventKey={4} href="/finalproduct">
-            Final Product
+          <NavItem eventKey={4}>
+            <Link to="/finalproduct">Final Product</Link>
           </NavItem>
-          <NavItem eventKey={5} href="/impact">
-            Impact
+          <NavItem eventKey={5}>
+            <Link to="/impact">Impact</Link>
           </NavItem>
         </Nav>
         <Nav pullRight>

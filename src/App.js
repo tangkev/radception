@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import NavBar from './components/navbar';
-import NavBarOn from './components/navbaron';
-import NavBarOff from './components/navbaroff';
 import Home from './views/Home';
 import Inspiration from './views/Inspiration';
 import Prototype from './views/Prototype';
@@ -22,17 +20,13 @@ class App extends Component {
   }
 
  	onLoggedOn = (e) => {
- 		componentDidMount() {
- 			this.setState({ loggedOn: true })
-			this.setState({ user: e })
- 		}
+		this.setState({ loggedOn: true })
+		this.setState({ user: e })
  	}
 
  	onLoggedOff = () => {
-		componentDidMount() {
- 			this.setState({ loggedOn: false })
-			this.setState({ user: '' })
- 		}
+		this.setState({ loggedOn: false })
+		this.setState({ user: '' })
  	}
 
   render() {
