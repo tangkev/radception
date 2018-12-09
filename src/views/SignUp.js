@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Col, ControlLabel, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 export default class SignUp extends Component {
   constructor() {
@@ -21,6 +22,18 @@ export default class SignUp extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const { firstname, lastname, email, username, password } = this.state;
+    axios({
+      method: 'POST',
+      url: 'http://localhost:5000/users', 
+      data: {
+        "firstname": firstname,
+        "lastname": lastname,
+        "email": email,
+        "username": username,
+        "password": password
+        },
+      headers: {'Content-Type': 'application/json' }
+    })
   }
 
   render () {
