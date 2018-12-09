@@ -2,37 +2,55 @@ import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Col, ControlLabel, Button } from 'react-bootstrap';
 import NavBar from '../components/navbar';
 
-export default class SignIn extends Component { 
-  render () {                                   
-      return (
-        <div>
-          <NavBar />
-          <Form horizontal>
-            <FormGroup controlId="formHorizontalUsername">
-              <Col componentClass={ControlLabel} sm={2} smOffset={3}>
-                Username
-              </Col>
-              <Col sm={2}>
-                <FormControl type="username" placeholder="Username" />
-              </Col>
-            </FormGroup>
+export default class SignIn extends Component {
+  constructor() {
+    super();
 
-            <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2} smOffset={3}>
-                Password
-              </Col>
-              <Col sm={2}>
-                <FormControl type="password" placeholder="Password" />
-              </Col>
-            </FormGroup>
+    this.state = {
+      username: '',
+      password: '',
+    }
+  }
 
-            <FormGroup>
-              <Col smOffset={5} sm={2}>
-                <Button type="submit">Sign in</Button>
-              </Col>
-            </FormGroup>
-          </Form>
-        </div>
-      )
-   }
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { username, password } = this.state;
+  }
+
+  render () {
+    const { username, password } = this.state;                        
+    return (
+      <div>
+        <Form horizontal onSubmit={this.onSubmit}>
+          <FormGroup controlId="formHorizontalUsername">
+            <Col componentClass={ControlLabel} sm={2} smOffset={3}>
+              Username
+            </Col>
+            <Col sm={2}>
+              <FormControl type="username" placeholder="Username" name="username" value={username} onChange={this.onChange} />
+            </Col>
+          </FormGroup>
+
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2} smOffset={3}>
+              Password
+            </Col>
+            <Col sm={2}>
+              <FormControl type="password" placeholder="Password" name="password" value={password} onChange={this.onChange} />
+            </Col>
+          </FormGroup>
+
+          <FormGroup>
+            <Col sm={2} smOffset={5}>
+              <Button type="submit">Sign in</Button>
+            </Col>
+          </FormGroup>
+        </Form>
+      </div>
+    )
+  }
 }
