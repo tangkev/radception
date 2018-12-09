@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-export default class NavBar extends Component {
-  render () {
+export default class NavBarOff extends Component { 
+  render () {                                   
     return (
       <Navbar inverse>
         <Navbar.Header>
@@ -36,6 +36,6 @@ export default class NavBar extends Component {
           </NavItem>
         </Nav>
       </Navbar>
-    );
+    )
   }
 }
