@@ -6,6 +6,7 @@ import Prototype from './views/Prototype';
 import FinalProduct from './views/FinalProduct';
 import Impact from './views/Impact';
 import SignIn from './views/SignIn';
+import SignOut from './views/SignOut';
 import SignUp from './views/SignUp';
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -67,6 +68,11 @@ class App extends Component {
 	    			<div className="App">
 	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<SignIn loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    			</div>
+	  			)}/>
+	  			<Route exact={true} path='/signout' render={() => (
+	    			<div className="App">
+	    				<SignOut loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/signup' render={() => (

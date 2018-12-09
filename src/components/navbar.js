@@ -12,19 +12,19 @@ export default class NavBarOff extends Component {
     let nav2;
 
     if (this.props.loggedOn) {
-      nav1 = <NavItem eventKey={1}><Link to="signin">Dashboard</Link></NavItem>;
-      nav2 = <NavItem eventKey={2}><Link to="/">Sign Out</Link></NavItem>;
+      nav1 = <NavItem eventKey={8}><Link to="/signin">Dashboard</Link></NavItem>;
+      nav2 = <NavItem eventKey={9}><Link to="/signout">Sign Out</Link></NavItem>;
     }
     else {
-      nav1 = <NavItem eventKey={1}><Link to="signin">Sign In</Link></NavItem>;
-      nav2 = <NavItem eventKey={2}><Link to="signup">Sign Up</Link></NavItem>;
+      nav1 = <NavItem eventKey={6}><Link to="/signin">Sign In</Link></NavItem>;
+      nav2 = <NavItem eventKey={7}><Link to="/signup">Sign Up</Link></NavItem>;
     }
 
     return (
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">Radception</a>
+            <Link to="/">Radception</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
