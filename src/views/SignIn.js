@@ -18,7 +18,7 @@ export default class SignIn extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const { username, password } = this.state;
-    this.props.updateLoggedOn(username);
+    this.props.onLoggedOn(username);
   }
 
   render () {

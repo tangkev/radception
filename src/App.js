@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavBar from './components/navbar';
 import NavBarOn from './components/navbaron';
 import NavBarOff from './components/navbaroff';
 import Home from './views/Home';
@@ -17,22 +18,22 @@ class App extends Component {
     this.state = {
       loggedOn: false,
       user: '',
-      navbar: <NavBarOff />,
     }
   }
 
-  updateLoggedOn = (e) => {
-  	componentDidMount() {
-  		this.setState(prevState => ({ loggedOn: !prevState.loggedOn }))
-  		this.setState({ user: e })
-	    if (this.loggedOn) {
-	    	this.setState({ navbar: <NavBarOn /> })
-	    }
-	    else {
-	    	this.setState({ navbar: <NavBarOff /> })	
-	    }
-  	}
-  }
+ 	onLoggedOn = (e) => {
+ 		componentDidMount() {
+ 			this.setState({ loggedOn: true })
+			this.setState({ user: e })
+ 		}
+ 	}
+
+ 	onLoggedOff = () => {
+		componentDidMount() {
+ 			this.setState({ loggedOn: false })
+			this.setState({ user: '' })
+ 		}
+ 	}
 
   render() {
     return (
@@ -40,43 +41,43 @@ class App extends Component {
 	  		<div>
 	  			<Route exact={true} path='/' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<Home />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/inspiration' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<Inspiration />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/prototype' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<Prototype />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/finalproduct' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<FinalProduct />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/impact' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<Impact />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/signin' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
-	    				<SignIn loggedOn={this.state.loggedOn} user={this.state.user} updateLoggedOn={this.updateLoggedOn} />
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<SignIn loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/signup' render={() => (
 	    			<div className="App">
-	    				{this.state.navbar}
+	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    				<SignUp />
 	    			</div>
 	  			)}/>

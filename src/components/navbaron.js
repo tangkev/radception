@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-export default class NavBarOn extends Component {  
+export default class NavBarOn extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {                                   
     return (
       <Navbar inverse>
@@ -31,7 +35,7 @@ export default class NavBarOn extends Component {
           <NavItem eventKey={1} href="/signin">
             Dashboard
           </NavItem>
-          <NavItem eventKey={2} href="/">
+          <NavItem eventKey={2} onSelect={this.props.updateLoggedOn('')} href="/">
             Sign Out
           </NavItem>
         </Nav>
