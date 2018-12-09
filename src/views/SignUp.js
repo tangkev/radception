@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Col, ControlLabel, Button } from 'react-bootstrap';
-import NavBar from '../components/navbar';
 
 export default class SignUp extends Component {
   constructor() {
     super();
-    
+
     this.state = {
       firstname: '',
       lastname: '',

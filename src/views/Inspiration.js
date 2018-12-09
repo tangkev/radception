@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Jumbotron, Col } from 'react-bootstrap';
-import NavBar from '../components/navbar'
 
 export default class Inspiration extends Component { 
   render () {                                   

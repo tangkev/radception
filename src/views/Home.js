@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button, Col } from 'react-bootstrap';
-import NavBar from '../components/navbar'
 
 export default class Home extends Component {
   render () {                                   

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Col, ControlLabel, Button } from 'react-bootstrap';
-import NavBar from '../components/navbar';
 
 export default class SignIn extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       username: '',
@@ -19,6 +18,7 @@ export default class SignIn extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const { username, password } = this.state;
+    this.props.updateLoggedOn(username);
   }
 
   render () {
