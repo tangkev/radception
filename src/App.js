@@ -8,6 +8,7 @@ import Impact from './views/Impact';
 import SignIn from './views/SignIn';
 import SignOut from './views/SignOut';
 import SignUp from './views/SignUp';
+import Dashboard from './views/Dashboard';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -17,12 +18,14 @@ class App extends Component {
     this.state = {
       loggedOn: false,
       user: '',
+      devices: [],
     }
   }
 
- 	onLoggedOn = (e) => {
+ 	onLoggedOn = (e, f) => {
 		this.setState({ loggedOn: true })
 		this.setState({ user: e })
+		this.setState({ devices: f})
  	}
 
  	onLoggedOff = () => {
@@ -36,38 +39,38 @@ class App extends Component {
 	  		<div>
 	  			<Route exact={true} path='/' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<Home />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/inspiration' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<Inspiration />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/prototype' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<Prototype />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/finalproduct' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<FinalProduct />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/impact' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<Impact />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/signin' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
-	    				<SignIn loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
+	    				<SignIn loggedOn={this.state.loggedOn} user={this.state.user} devices={this.state.devices} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/signout' render={() => (
@@ -77,8 +80,14 @@ class App extends Component {
 	  			)}/>
 	  			<Route exact={true} path='/signup' render={() => (
 	    			<div className="App">
-	    				<NavBar loggedOn={this.state.loggedOn} user={this.state.user} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<SignUp />
+	    			</div>
+	  			)}/>
+		  		<Route exact={true} path='/dashboard' render={() => (
+	    			<div className="App">
+	    				<NavBar loggedOn={this.state.loggedOn} />
+	    				<Dashboard loggedOn={this.state.loggedOn} user={this.state.user} devices={this.state.devices} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
 	    			</div>
 	  			)}/>
 		  	</div>

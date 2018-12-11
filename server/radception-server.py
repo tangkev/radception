@@ -16,7 +16,7 @@ USERS = db.reference('users')
 @app.route('/users', methods=['POST'])
 def create_user():
     req = flask.request.json
-    user = USERS.push(req)
+    user = USERS.child(req["username"]).set(req)
     return flask.jsonify({'id': user.key}), 201
 
 @app.route('/users/<id>')

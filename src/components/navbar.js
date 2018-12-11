@@ -12,7 +12,7 @@ export default class NavBarOff extends Component {
     let nav2;
 
     if (this.props.loggedOn) {
-      nav1 = <NavItem eventKey={8}><Link to="/signin">Dashboard</Link></NavItem>;
+      nav1 = <NavItem eventKey={8}><Link to="/dashboard">Dashboard</Link></NavItem>;
       nav2 = <NavItem eventKey={9}><Link to="/signout">Sign Out</Link></NavItem>;
     }
     else {
