@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       loggedOn: false,
       user: '',
-      devices: [],
+      devices: [''],
     }
   }
 
@@ -31,6 +31,14 @@ class App extends Component {
  	onLoggedOff = () => {
 		this.setState({ loggedOn: false })
 		this.setState({ user: '' })
+		this.setState({ devices: [''] })
+ 	}
+
+ 	onAddDevice = (e) => {
+ 		this.state.devices.push(e)
+ 		if (this.state.devices[0] === '') {
+ 			this.state.devices.splice(0, 1)
+ 		}
  	}
 
   render() {
@@ -87,7 +95,7 @@ class App extends Component {
 		  		<Route exact={true} path='/dashboard' render={() => (
 	    			<div className="App">
 	    				<NavBar loggedOn={this.state.loggedOn} />
-	    				<Dashboard loggedOn={this.state.loggedOn} user={this.state.user} devices={this.state.devices} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} />
+	    				<Dashboard loggedOn={this.state.loggedOn} user={this.state.user} devices={this.state.devices} onLoggedOn={this.onLoggedOn} onLoggedOff={this.onLoggedOff} onAddDevice={this.onAddDevice} />
 	    			</div>
 	  			)}/>
 		  	</div>

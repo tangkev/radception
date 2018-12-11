@@ -12,6 +12,7 @@ firebase_admin.initialize_app(cred, options={
     'databaseURL': 'https://radception-database.firebaseio.com'
 })
 USERS = db.reference('users')
+DEVICES = db.reference('devices')
 
 @app.route('/users', methods=['POST'])
 def create_user():
@@ -41,3 +42,32 @@ def _ensure_user(id):
     if not user:
         flask.abort(404)
     return user
+
+@app.route('/devices', methods=['POST'])
+def create_device():
+    req = flask.request.json
+    device = DEVICES.child(req["device_id"]).set(req)
+    return flask.jsonify({'id': device.key}), 201
+
+@app.route('/devices/<id>')
+def read_device(id):
+    return flask.jsonify(_ensure_device(id))
+
+@app.route('/devices/<id>', methods=['PUT'])
+def update_device(id):
+    _ensure_device(id)
+    req = flask.request.json
+    DEVICES.child(id).update(req)
+    return flask.jsonify({'success': True})
+
+@app.route('/devices/<id>', methods=['DELETE'])
+def delete_device(id):
+    _ensure_device(id)
+    DEVICES.child(id).delete()
+    return flask.jsonify({'success': True})
+
+def _ensure_device(id):
+    device = DEVICES.child(id).get()
+    if not device:
+        flask.abort(404)
+    return device
