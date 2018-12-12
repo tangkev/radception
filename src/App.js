@@ -3,13 +3,15 @@ import NavBar from './components/navbar';
 import Home from './views/Home';
 import Inspiration from './views/Inspiration';
 import Prototype from './views/Prototype';
-import FinalProduct from './views/FinalProduct';
+import OurProduct from './views/OurProduct';
 import Impact from './views/Impact';
 import SignIn from './views/SignIn';
 import SignOut from './views/SignOut';
 import SignUp from './views/SignUp';
+import Acknowledgements from './views/Acknowledgements';
 import Dashboard from './views/Dashboard';
 import { BrowserRouter, Route } from 'react-router-dom';
+import axios from 'axios';
 
 class App extends Component {
 	constructor(props) {
@@ -47,8 +49,26 @@ class App extends Component {
  		window.location.reload();
  	}
 
+ 	onPing = () => {
+    const siteurl = 'https://radception-server.herokuapp.com/';
+    axios({
+      method: 'GET',
+      url: siteurl
+      })
+      .then(res => {
+      })
+      .catch(err => {
+      })
+  }
+
+  continuousPing = () => {   
+    setInterval(this.onPing, 600000)  
+  }
+
   render() {
   	const rerender = this.state.rerenderHome;
+
+  	this.continuousPing()
 
   	if (rerender) {
   		return(
@@ -76,10 +96,10 @@ class App extends Component {
 	    				<Prototype />
 	    			</div>
 	  			)}/>
-	  			<Route exact={true} path='/finalproduct' render={() => (
+	  			<Route exact={true} path='/ourproduct' render={() => (
 	    			<div className="App">
 	    				<NavBar loggedOn={this.state.loggedOn} />
-	    				<FinalProduct />
+	    				<OurProduct />
 	    			</div>
 	  			)}/>
 	  			<Route exact={true} path='/impact' render={() => (
@@ -103,6 +123,12 @@ class App extends Component {
 	    			<div className="App">
 	    				<NavBar loggedOn={this.state.loggedOn} />
 	    				<SignUp />
+	    			</div>
+	  			)}/>
+	  			<Route exact={true} path='/acknowledgements' render={() => (
+	    			<div className="App">
+	    				<NavBar loggedOn={this.state.loggedOn} />
+	    				<Acknowledgements />
 	    			</div>
 	  			)}/>
 		  		<Route exact={true} path='/dashboard' render={() => (

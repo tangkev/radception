@@ -62,7 +62,7 @@ export default class Device extends Component {
                   </td>
                   <td width='50%'>
                     <div align="center">
-                      <Button onClick={this.continuousUpdate}>Update</Button>
+                      <Button onClick={this.continuousUpdate}>Update data</Button>
                     </div>
                   </td>
                 </tr>

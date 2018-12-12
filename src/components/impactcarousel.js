@@ -24,34 +24,23 @@ export default class ImpactCarousel extends Component {
     const { index, direction } = this.state;
 
     return (
-    	<Col sm={6} smOffset={3}>
+    	<Col sm={10} smOffset={1}>
 	      <Carousel
 	        activeIndex={index}
 	        direction={direction}
 	        onSelect={this.handleSelect}
 	      >
 	        <Carousel.Item>
-	          <img width={1200} height={900} alt="1200x900" align="center" src={require("../images/carousel.png")} />
-	          <Carousel.Caption>
-	            <h3>First slide label</h3>
-	            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-	          </Carousel.Caption>
+	          <img width={1182} height={667} alt="1182x667" align="center" src={require("../images/slide1.png")} />
 	        </Carousel.Item>
 	        <Carousel.Item>
-	          <img width={1200} height={900} alt="1200x900" align="center" src={require("../images/carousel.png")} />
-	          <Carousel.Caption>
-	            <h3>Second slide label</h3>
-	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	          </Carousel.Caption>
+	          <img width={1182} height={667} alt="1182x667" align="center" src={require("../images/slide2.png")} />
 	        </Carousel.Item>
 	        <Carousel.Item>
-	          <img width={1200} height={900} alt="1200x900" align="center" src={require("../images/carousel.png")} />
-	          <Carousel.Caption>
-	            <h3>Third slide label</h3>
-	            <p>
-	              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-	            </p>
-	          </Carousel.Caption>
+	          <img width={1182} height={667} alt="1182x667" align="center" src={require("../images/slide3.png")} />
+	        </Carousel.Item>
+	        <Carousel.Item>
+	          <img width={1182} height={667} alt="1182x667" align="center" src={require("../images/slide4.png")} />
 	        </Carousel.Item>
 	      </Carousel>
       </Col>
