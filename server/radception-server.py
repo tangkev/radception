@@ -1,6 +1,7 @@
 import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
+import json
 import flask
 from flask_cors import CORS
 
@@ -43,6 +44,8 @@ def _ensure_user(id):
         flask.abort(404)
     return user
 
+current_readings = [[], 0, 0]
+
 @app.route('/devices', methods=['POST'])
 def create_device():
     req = flask.request.json
@@ -57,7 +60,18 @@ def read_device(id):
 def update_device(id):
     _ensure_device(id)
     req = flask.request.json
-    DEVICES.child(id).update(req)
+    device_id = req["device_id"]
+    timestamp = float(req["timestamp"])
+    reading = float(req["reading"])
+    longitude = float(req["longitude"])
+    latitude = float(req["latitude"])
+    current_readings[0].append([timestamp, reading])
+    current_readings[1] = longitude
+    current_readings[2] = latitude
+    if len(current_readings[0]) > 50:
+        del current_readings[0][0]
+    read = {"currentreadings": current_readings}
+    DEVICES.child(id).update(read)
     return flask.jsonify({'success': True})
 
 @app.route('/devices/<id>', methods=['DELETE'])

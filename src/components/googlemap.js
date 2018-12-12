@@ -12,6 +12,9 @@ export class GoogleMap extends Component {
   }
 
   render() {
+    const latCoord = this.props.latCoord;
+    const longCoord = this.props.longCoord;
+
     return (
       <div style={{ height: '100%', width: '100%', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'center', padding: 0 }}>
         <Map
@@ -20,11 +23,15 @@ export class GoogleMap extends Component {
           containerStyle={{ width: '400px', height: '400px', position: 'relative' }}
           style={mapStyles}
           initialCenter={{
-           lat: 42.357349,
-           lng: -71.101063
+            lat: latCoord,
+            lng: longCoord
+          }}
+          center={{
+            lat: latCoord,
+            lng: longCoord
           }}
         >
-          <Marker />
+          <Marker position={{lat: latCoord, lng: longCoord}}/>
         </Map>
       </div>
     );

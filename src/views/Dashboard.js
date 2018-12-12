@@ -38,7 +38,7 @@ export default class Dashboard extends Component {
       method: 'GET',
       url: deviceurl
       })
-      .then(resp => {
+      .then(res => {
         this.props.onAddDevice(deviceToAdd)
         const devices = this.props.devices;
         axios({
@@ -64,6 +64,7 @@ export default class Dashboard extends Component {
   	const user = this.props.user;
   	const devices = this.props.devices;
   	const { deviceToAdd, rerender, showAlert } = this.state;
+  	const loggedOn = this.props.loggedOn;
 
   	if (rerender) {
   		this.onRerender()
@@ -90,10 +91,7 @@ export default class Dashboard extends Component {
 						<p align="center">
 		  				Your devices are: {devices}.
 						</p>
-						<Device devices={devices} />
-						<p align="center">
-		  				<Button bsStyle="primary">Learn more</Button>
-						</p>
+						<Device device={devices[0]} loggedOn={loggedOn} />
 					</Jumbotron>
 				</Col>
       </div>
