@@ -17,7 +17,7 @@ export default class Device extends Component {
 
   update = () => {
     const device = this.props.device;
-    const deviceurl = 'http://radception-server.serveo.net/devices/' + device;
+    const deviceurl = 'https://radception-server.herokuapp.com/devices/' + device;
     axios({
       method: 'GET',
       url: deviceurl

@@ -32,8 +32,8 @@ export default class Dashboard extends Component {
     e.preventDefault()
     const { deviceToAdd, rerender, showAlert } = this.state;
     const user = this.props.user;
-    const deviceurl = 'http://radception-server.serveo.net/devices/' + deviceToAdd;
-    const userurl = 'http://radception-server.serveo.net/users/' + user;
+    const deviceurl = 'https://radception-server.herokuapp.com/devices/' + deviceToAdd;
+    const userurl = 'https://radception-server.herokuapp.com/' + user;
     axios({
       method: 'GET',
       url: deviceurl

@@ -26,7 +26,7 @@ export default class SignIn extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const { username, password, showAlert } = this.state;
-    const userurl = 'http://radception-server.serveo.net/users/' + username;
+    const userurl = 'https://radception-server.herokuapp.com/users/' + username;
     axios({
       method: 'GET',
       url: userurl

@@ -34,7 +34,7 @@ export default class SignUp extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const { firstname, lastname, email, username, password, showSuccessAlert, showFailAlert } = this.state;
-    const userurl = 'http://radception-server.serveo.net/users/' + username;
+    const userurl = 'https://radception-server.herokuapp.com/users/' + username;
     axios({
       method: 'GET',
       url: userurl
@@ -47,7 +47,7 @@ export default class SignUp extends Component {
           this.setState({ showFailAlert: false })
           axios({
             method: 'POST',
-            url: 'http://radception-server.serveo.net/users', 
+            url: 'https://radception-server.herokuapp.com/users', 
             data: {
               "firstname": firstname,
               "lastname": lastname,
