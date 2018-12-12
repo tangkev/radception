@@ -16,7 +16,6 @@ export default class Device extends Component {
   }
 
   update = () => {
-    const loggedOn = this.props.loggedOn;
     const device = this.props.device;
     const deviceurl = 'http://radception-server.serveo.net/devices/' + device;
     axios({
@@ -29,11 +28,15 @@ export default class Device extends Component {
         this.setState({ latCoord: resp['currentreadings'][1] })
         this.setState({ longCoord: resp['currentreadings'][2] })
       })
+  }
+
+  continuousUpdate = () => {
+    const loggedOn = this.props.loggedOn;
     if (loggedOn) {
-      setTimeout(this.update, 1000)
+      setInterval(this.update, 1000)  
     }
     else {
-      return null
+      clearInterval()
     }
   }
 
@@ -59,7 +62,7 @@ export default class Device extends Component {
                   </td>
                   <td width='50%'>
                     <div align="center">
-                      <Button onClick={this.update}>Update</Button>
+                      <Button onClick={this.continuousUpdate}>Update</Button>
                     </div>
                   </td>
                 </tr>

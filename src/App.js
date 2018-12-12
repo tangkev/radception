@@ -16,6 +16,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+    	rerenderHome: false,
       loggedOn: false,
       user: '',
       devices: [''],
@@ -32,6 +33,7 @@ class App extends Component {
 		this.setState({ loggedOn: false })
 		this.setState({ user: '' })
 		this.setState({ devices: [''] })
+		this.setState({ rerenderHome: true })
  	}
 
  	onAddDevice = (e) => {
@@ -41,7 +43,18 @@ class App extends Component {
  		}
  	}
 
+ 	onRerender = () => {
+ 		window.location.reload();
+ 	}
+
   render() {
+  	const rerender = this.state.rerenderHome;
+
+  	if (rerender) {
+  		return(
+  			this.onRerender()
+  		)
+  	}
     return (
       <BrowserRouter>
 	  		<div>
