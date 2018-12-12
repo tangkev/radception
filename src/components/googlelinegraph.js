@@ -22,7 +22,7 @@ export default class GoogleLineGraph extends Component {
           options={{
             legend: { position:'none' },
             chart: {
-              title: 'Live Dose Rate',
+              title: 'Live Dose Rate [uSv/h]',
             },
             hAxis: {
               title: 'Time',
